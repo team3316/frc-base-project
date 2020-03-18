@@ -1,0 +1,124 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<beans xmlns = "http://www.springframework.org/schema/beans"
+   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:util="http://www.springframework.org/schema/util"
+   xmlns:p="http://www.springframework.org/schema/p"
+   xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+   http://www.springframework.org/schema/util 
+   http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+  <util:list id="TalonType" value-type="com.team3316.kit.motors.TalonType">
+    <value>REGULAR</value>
+    <value>CLOSED_LOOP_QUAD</value>
+    <value>CLOSED_LOOP_QUAD_ABS</value>
+    <value>CLOSED_LOOP_MAG</value>
+    <value>CLOSED_LOOP_MAG_ABS</value>
+    <value>FOLLOWER</value>
+  </util:list> 
+
+  <util:list id="Port" value-type="edu.wpi.first.wpilibj.SPI.Port">
+    <value>kOnboardCS0</value>
+    <value>kOnboardCS1</value>
+    <value>kOnboardCS2</value>
+    <value>kOnboardCS3</value>
+    <value>kMXP</value>
+  </util:list>
+
+<!-- PCPoosher -->
+  <!-- Pnuematics -->
+  <bean id="PCPoosher.shifter" class="com.team3316.kit.mocks.DoubleSolenoidTesting">
+    <constructor-arg index="0" value="4"/>
+    <constructor-arg index="1" value="5"/>
+  </bean>
+  
+<!-- Climb -->
+  <!-- Motors -->
+  <bean id="climb.climberSpark" class="com.team3316.kit.mocks.SparkMaxTesting">
+    <constructor-arg index="0" value="15"/>
+  </bean>
+<!-- Intake -->
+
+  <!-- Motors -->
+
+  <bean id="intake.rollervictor" class="com.team3316.kit.mocks.TalonSRXTesting">
+    <constructor-arg index="0" value="1"/>
+  </bean>
+
+  <bean id="intake.armTalon" class="com.team3316.kit.mocks.TalonSRXTesting">
+    <constructor-arg index="0" value="1"/>
+    <constructor-arg index="1" value="CLOSED_LOOP_QUAD"/>
+  </bean>
+
+  <!-- Sensors -->
+  <bean id="intake.inlimit" class="com.team3316.kit.mocks.DigitalInputTesting">
+    <constructor-arg index="0" value="1"/>
+  </bean>
+  <bean id="intake.outlimit" class="com.team3316.kit.mocks.DigitalInputTesting">
+    <constructor-arg index="0" value="2"/>
+  </bean>
+
+  <!-- Shooter -->
+
+  <!-- Motors-->
+  <bean id="shooter.sparkMaxLeft" class="com.team3316.kit.mocks.SparkMaxTesting">
+    <constructor-arg index="0" value="14"/>
+  </bean>
+  <bean id="shooter.sparkMaxRight" class="com.team3316.kit.mocks.SparkMaxTesting">
+    <constructor-arg index="0" value="12"/>
+  </bean>
+  
+<!-- Pizza -->
+
+  <!-- Motors -->
+  <bean id="pizza.pizzaMotor" class="com.team3316.kit.mocks.TalonSRXTesting">
+    <constructor-arg index="0" value="1"/>
+  </bean>
+
+  <!-- Sensors -->  
+  <bean id="pizza.hall" class="com.team3316.kit.mocks.DigitalInputTesting">
+    <constructor-arg index="0" value="0"/>
+  </bean>
+
+<!-- Extractor -->
+
+  <!-- Motors -->
+  <bean id="extractor.roller" class="com.team3316.kit.mocks.TalonSRXTesting">
+    <constructor-arg index="0" value="8"/>
+    <constructor-arg index="1" value="CLOSED_LOOP_QUAD"/>
+  </bean>
+
+<!-- Drivetrain -->
+
+  <!-- Motors -->
+
+  <bean id="drivetrain.talonrf" class="com.team3316.kit.mocks.TalonSRXTesting">
+    <constructor-arg index="0" value="1"/>
+    <constructor-arg index="1" value="CLOSED_LOOP_QUAD"/>
+  </bean>
+  <bean id="drivetrain.talonlf" class="com.team3316.kit.mocks.TalonSRXTesting">
+    <constructor-arg index="0" value="2"/>
+    <constructor-arg index="1" value="CLOSED_LOOP_QUAD"/>
+  </bean>
+  <bean id="drivetrain.talonrb" class="com.team3316.kit.mocks.TalonSRXTesting">
+    <constructor-arg index="0" value="1"/>
+  </bean>
+  <bean id="drivetrain.talonlb" class="com.team3316.kit.mocks.TalonSRXTesting">
+    <constructor-arg index="0" value="2"/>
+  </bean>
+  <bean id="drivetrain.victorr" class="com.team3316.kit.mocks.VictorSPXTesting">
+    <constructor-arg index="0" value="4"/>
+  </bean>
+  <bean id="drivetrain.victorl" class="com.team3316.kit.mocks.VictorSPXTesting">
+    <constructor-arg index="0" value="3"/>
+  </bean>
+
+  <!-- Drivetrain sensors and solenoids -->
+  <bean id="drivetrain.shifter" class="com.team3316.kit.mocks.DoubleSolenoidTesting">
+    <constructor-arg index="0" value="1"/>
+    <constructor-arg index="1" value="2"/>
+  </bean>
+  
+  <bean id="drivetrain.pigeon" class="com.team3316.kit.mocks.PigeonIMUTesting">
+    <constructor-arg><ref bean="drivetrain.talonrb"/></constructor-arg>
+  </bean>
+</beans>

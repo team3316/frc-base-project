@@ -1,0 +1,121 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<beans xmlns = "http://www.springframework.org/schema/beans"
+   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:util="http://www.springframework.org/schema/util"
+   xmlns:p="http://www.springframework.org/schema/p"
+   xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+   http://www.springframework.org/schema/util 
+   http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+  <util:list id="TalonType" value-type="com.team3316.kit.motors.TalonType">
+    <value>REGULAR</value>
+    <value>CLOSED_LOOP_QUAD</value>
+    <value>CLOSED_LOOP_QUAD_ABS</value>
+    <value>CLOSED_LOOP_MAG</value>
+    <value>CLOSED_LOOP_MAG_ABS</value>
+    <value>FOLLOWER</value>
+  </util:list>
+
+  <util:list id="Port" value-type="edu.wpi.first.wpilibj.SPI.Port">
+    <value>kOnboardCS0</value>
+    <value>kOnboardCS1</value>
+    <value>kOnboardCS2</value>
+    <value>kOnboardCS3</value>
+    <value>kMXP</value>
+  </util:list>
+
+<!-- PCPoosher -->
+  <!-- Pnuematics -->
+  <bean id="PCPoosher.shifter" class="edu.wpi.first.wpilibj.DoubleSolenoid">
+    <constructor-arg index="0" value="1"/>
+    <constructor-arg index="1" value="3"/>
+  </bean>
+  
+ <!-- Intake -->
+  <!-- Motors -->
+
+  <bean id="intake.rollervictor" class="com.team3316.kit.motors.DBugTalon">
+    <constructor-arg index="0" value="13"/>
+  </bean>
+
+  <bean id="intake.armTalon" class="com.team3316.kit.motors.DBugTalon">
+    <constructor-arg index="0" value="11"/>
+  </bean>
+
+<!-- Climber -->  
+  <!-- Motors -->
+  <bean id="climb.climberSpark" class="com.team3316.kit.motors.DBugSparkMax">
+    <constructor-arg index="0" value="15"/>
+  </bean>
+
+  <!-- Pneumatics -->
+  <bean id="climb.elevatorTalon" class="com.team3316.kit.motors.DBugTalon">
+    <constructor-arg index="0" value="7"/>
+  </bean>
+
+
+<!-- Shooter -->
+
+  <!-- Motors -->
+  <bean id="shooter.sparkMaxLeft" class="com.team3316.kit.motors.DBugSparkMax">
+    <constructor-arg index="0" value="14"/>
+  </bean>
+  <bean id="shooter.sparkMaxRight" class="com.team3316.kit.motors.DBugSparkMax">
+    <constructor-arg index="0" value="12"/>
+  </bean>
+
+<!-- Pizza -->
+
+  <!-- Motors -->
+  <bean id="pizza.pizzaMotor" class="com.team3316.kit.motors.DBugTalon">
+    <constructor-arg index="0" value="10"/>
+  </bean>
+  <!-- <bean id="pizza.roller" class="com.ctre.phoenix.motorcontrol.can.VictorSPX">
+    <constructor-arg index="0" value="12"/>
+  </bean> -->
+
+  <!-- Sensors -->
+  <!-- TEST CODE <bean id="pizza.hall" class="edu.wpi.first.wpilibj.DigitalInput">
+    <constructor-arg index="0" value="0"/>
+  </bean> -->
+
+<!-- Extractor -->
+
+  <!-- Motors -->
+  <bean id="extractor.roller" class="com.team3316.kit.motors.DBugTalon">
+    <constructor-arg index="0" value="8"/>
+    <constructor-arg index="1" value="CLOSED_LOOP_QUAD"/>
+  </bean>
+
+<!-- Drivetrain -->
+  <!-- Motors -->   
+  <bean id="drivetrain.talonR" class="com.team3316.kit.motors.DBugTalon">
+    <constructor-arg index="0" value="1"/>
+    <constructor-arg index="1" value="CLOSED_LOOP_QUAD"/>
+  </bean>
+  <bean id="drivetrain.victorLF" class="com.ctre.phoenix.motorcontrol.can.VictorSPX">
+    <constructor-arg index="0" value="3"/>
+  </bean>
+  <bean id="drivetrain.victorLB" class="com.ctre.phoenix.motorcontrol.can.VictorSPX">
+    <constructor-arg index="0" value="2"/>
+  </bean>
+  <bean id="drivetrain.talonL" class="com.team3316.kit.motors.DBugTalon">
+    <constructor-arg index="0" value="6"/>
+    <constructor-arg index="1" value="CLOSED_LOOP_QUAD"/>
+  </bean>
+  <bean id="drivetrain.victorRF" class="com.ctre.phoenix.motorcontrol.can.VictorSPX">
+    <constructor-arg index="0" value="4"/>
+  </bean>
+  <bean id="drivetrain.victorRB" class="com.ctre.phoenix.motorcontrol.can.VictorSPX">
+    <constructor-arg index="0" value="5"/>
+  </bean>
+
+  <!-- Drivetrain sensors and solenoids -->
+  <bean id="drivetrain.shifter" class="edu.wpi.first.wpilibj.DoubleSolenoid">
+    <constructor-arg index="0" value="0"/>
+    <constructor-arg index="1" value="2"/>
+  </bean>
+  <bean id="drivetrain.pigeon" class="com.ctre.phoenix.sensors.PigeonIMU">
+    <constructor-arg><ref bean="pizza.pizzaMotor"/></constructor-arg>
+  </bean>
+</beans>
