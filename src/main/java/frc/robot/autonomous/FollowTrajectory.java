@@ -27,7 +27,7 @@ public class FollowTrajectory extends DBugCommand {
     // Handle braking requirements
     if (brakeMode != AutoBrakeMode.NONE) Robot.drivetrain.setBrake(true);
 
-    Path trajectoryPath = Constants.Autonomous.Directories.robotTrajectoriesDir().resolve(fileName);
+    Path trajectoryPath = Constants.Autonomous.Directories.robotTrajectoriesDir.resolve(fileName);
     Trajectory trajectory = Utils.deserializeTrajectory(trajectoryPath);
 
     this._ramseteCommand = new RamseteCommand(
