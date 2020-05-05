@@ -5,7 +5,7 @@ import frc.robot.autonomous.plans.*;
 
 public enum AutoPlan {
     None(null),
-    StraightLinePlan(new ExamplePlan());
+    ExamplePlan(new ExamplePlan());
 
     private DBugCommandGroup _plan;
 
