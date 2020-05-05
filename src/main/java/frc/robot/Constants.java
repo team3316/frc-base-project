@@ -21,7 +21,7 @@ public final class Constants {
     
     public static final class Autonomous {
         /**
-         * How long to brake after the trajectory has ended
+         * How long to brake after the trajectory has ended [Sec]
          */
         public static final double brakeDelay = 1.0;
 
