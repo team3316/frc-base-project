@@ -45,7 +45,7 @@ public class TrajectoryGeneration {
 
     Trajectory trajectory = TrajectoryGenerator.generateTrajectory(start, interiorWaypoints, end, config);
     
-    Path trajectoryPath = Constants.Autonomous.Directories.localTrajectoriesDir().resolve(fileName);
+    Path trajectoryPath = Constants.Autonomous.Directories.localTrajectoriesDir.resolve(fileName);
     Utils.serializeTrajectory(trajectoryPath, trajectory);
   }
 }
