@@ -1,12 +1,11 @@
 package frc.robot.autonomous;
 
 import com.team3316.kit.commands.DBugCommandGroup;
-import frc.robot.commands.autonomous.plans.*;
+import frc.robot.autonomous.plans.*;
 
 public enum AutoPlan {
     None(null),
-    StraightLinePlan(new StraightLinePlan()),
-    BottomPortPlan(new BottomPortPlan());
+    StraightLinePlan(new ExamplePlan());
 
     private DBugCommandGroup _plan;
 

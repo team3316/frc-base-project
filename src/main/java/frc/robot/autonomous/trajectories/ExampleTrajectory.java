@@ -8,11 +8,11 @@ import edu.wpi.first.wpilibj.geometry.Translation2d;
 import frc.robot.autonomous.TrajectoryGeneration;
 
 /**
- * TestTrajectory
+ * ExampleTrajectory
  */
-public class TestTrajectory extends TrajectoryGeneration {
+public class ExampleTrajectory extends TrajectoryGeneration {
     public static String fileName = "TestTrajectory.json";
-    public TestTrajectory() {
+    public ExampleTrajectory() {
         super(
             fileName,
             new Pose2d(0, 0, new Rotation2d(Math.toRadians(0))),

@@ -1,4 +1,4 @@
-package frc.robot.commands.autonomous;
+package frc.robot.autonomous;
 
 public enum AutoBrakeMode {
     // TODO add UNSET option to keep brake mode as is

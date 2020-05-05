@@ -1,4 +1,4 @@
-package frc.robot.commands.autonomous;
+package frc.robot.autonomous;
 
 import com.team3316.kit.commands.DBugCommand;
 import edu.wpi.first.wpilibj.Timer;
