@@ -1,14 +1,16 @@
-package frc.robot.commands.autonomous.plans;
+package frc.robot.autonomous.plans;
 
 import com.team3316.kit.commands.DBugCommandGroup;
 
-import frc.robot.commands.drivetrain.SetDrivetrainTime;
+import frc.robot.autonomous.AutoBrakeMode;
+import frc.robot.autonomous.FollowTrajectory;
+import frc.robot.autonomous.trajectories.ExampleTrajectory;
 
 /**
- * StraightLinePlan
+ * ExamplePlan
  */
-public class StraightLinePlan extends DBugCommandGroup {
-  public StraightLinePlan() {
-    add(() -> new SetDrivetrainTime(2.0, 0.4));
+public class ExamplePlan extends DBugCommandGroup {
+  public ExamplePlan() {
+    add(() -> new FollowTrajectory(ExampleTrajectory.fileName, AutoBrakeMode.ALWAYS));
   }
 }
