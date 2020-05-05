@@ -33,6 +33,11 @@ public class Robot extends TimedRobot {
    */
   public static Joysticks joysticks;
 
+  
+  /**
+   * Autonomous Plan Chooser
+   */
+  private static SendableChooser<AutoPlan> autoPlanChooser;
 
   /**
    * This function is run when the robot is first started up and should be
@@ -55,6 +60,18 @@ public class Robot extends TimedRobot {
      * SDB commands
      */
 
+     
+    /**
+     * Autonomous Plan Chooser
+     */
+    autoPlanChooser = new SendableChooser<>();
+
+    // Add options
+    autoPlanChooser.addOption("None", AutoPlan.None);
+    autoPlanChooser.setDefaultOption("Example Plan", AutoPlan.ExamplePlan);
+
+    // Display chooser in SDB
+    SmartDashboard.putData("Autonomous Plan", autoPlanChooser);
   } 
 
   /**
