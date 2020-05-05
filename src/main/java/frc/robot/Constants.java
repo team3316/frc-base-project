@@ -3,8 +3,6 @@ package frc.robot;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import frc.robot.autonomous.AutoPlan;
-
 /**
  * Constants
  */
@@ -22,11 +20,6 @@ public final class Constants {
     }
     
     public static final class Autonomous {
-        /**
-         * Default autonomous plan
-         */
-        public static final AutoPlan defaultAutoPlan = AutoPlan.StraightLinePlan;
-
         /**
          * How long to brake after the trajectory has ended
          */
