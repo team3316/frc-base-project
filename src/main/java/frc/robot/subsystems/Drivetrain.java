@@ -10,6 +10,7 @@ import com.team3316.kit.DBugSubsystem;
 import com.team3316.kit.control.PIDFGains;
 import com.team3316.kit.motors.DBugTalon;
 
+import edu.wpi.first.wpilibj.RobotController;
 import edu.wpi.first.wpilibj.geometry.Pose2d;
 import edu.wpi.first.wpilibj.geometry.Rotation2d;
 import edu.wpi.first.wpilibj.kinematics.DifferentialDriveKinematics;
@@ -256,7 +257,8 @@ public class Drivetrain extends DBugSubsystem {
      * @return The current wheel speeds as a DifferentialDriveWheelSpeeds object
      */
     public DifferentialDriveWheelSpeeds getWheelSpeeds() {
-        // return new DifferentialDriveWheelSpeeds(leftMetersPerSecond, rightMetersPerSecond);
+        // TODO bug may be here, value is expected to be in M/Sec but is given in M/100ms
+        return new DifferentialDriveWheelSpeeds(getLeftVelocity(), getRightVelocity());
     }
 
     /**
@@ -265,17 +267,17 @@ public class Drivetrain extends DBugSubsystem {
      * @param rightVolts the commanded right output
      */
     public void tankDriveVolts(double leftVolts, double rightVolts) {
-        // this._talonL.set(ControlMode.PercentOutput, leftVolts / RobotController.getBatteryVoltage());
-        // this._talonR.set(ControlMode.PercentOutput, rightVolts / RobotController.getBatteryVoltage());
+        setPercentage(leftVolts / RobotController.getBatteryVoltage(),
+            rightVolts / RobotController.getBatteryVoltage());
     }
 
     /**
      * Needed for path following, Update Odometry object with new data from sensors.
      */
     public void updateOdometry() {
-        // this._odometry.update(Rotation2d.fromDegrees(getYawDegrees()),
-        //     getLeftDistance(),
-        //     getRightDistance());
+        this._odometry.update(Rotation2d.fromDegrees(getYawDegrees()),
+            getLeftDistance(),
+            getRightDistance());
     }
 
     //// DEFAULT COMMAND ////
