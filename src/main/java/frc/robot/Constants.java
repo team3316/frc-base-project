@@ -3,6 +3,9 @@ package frc.robot;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+import com.ctre.phoenix.motorcontrol.InvertType;
+import com.team3316.kit.control.PIDFGains;
+
 /**
  * Constants
  */
@@ -88,7 +91,17 @@ public final class Constants {
          * Motor Controllers configuration
          */
         public static final class MotorControllers {
-            // Remeber to only put master motor controllers here, use InvertType.FollowMaster for slave motors
+            public static final class Right {
+                public static final InvertType invertType = InvertType.None;
+                public static final boolean sensorPhase = false;
+                public static final PIDFGains gainsMain = new PIDFGains(0, 0, 0, 0, 0.0);
+            }
+
+            public static final class Left {
+                public static final InvertType invertType = InvertType.InvertMotorOutput;
+                public static final boolean sensorPhase = false;
+                public static final PIDFGains gainsMain = new PIDFGains(0, 0, 0, 0, 0.0);
+            }
         }
     }
 
