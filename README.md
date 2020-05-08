@@ -11,13 +11,11 @@
 
 # TODO
 
-* Add a talon / victor setup function (either here or in the DBugKit), maybe use Talon Configuration object
-* Add useful functions to Drivetrain
-    * Motor controller setup
-    * getVelocity
-    * getOutput
-    * getDistance
-    * setEncoderDistance
-    * setPigeonYaw
-    * setPercentage
-    * setBrake
+* Seperate project to path generation and robot code
+* Add useful Drivetrain Commands
+    * Drive Dist w/ aux PID for fixed angle
+    * Straight Drive w/ velocity PID + aux PID for fixed angle
+    * Tank Drive
+
+Optional:
+    * Add branch for pneumatics with compressor and gear shifter, to easily merge in case needed
