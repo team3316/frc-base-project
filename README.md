@@ -18,4 +18,4 @@
     * Tank Drive
 
 Optional:
-    * Add branch for pneumatics with compressor and gear shifter, to easily merge in case needed
+* Add branch for pneumatics with compressor and gear shifter, to easily merge in case needed
